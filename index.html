@@ -55,16 +55,16 @@
             width: 100%;
             height: 120%;
             pointer-events: none;
-            z-index: 1;
-            opacity: 0.18;
+            z-index: 1.5;
+            opacity: 0.28;
             font-size: 2rem;
             line-height: 3.4rem;
             white-space: pre;
             display: block;
-            color: rgba(255, 255, 255, 0.65);
-            text-shadow: 0 0 12px rgba(185, 136, 74, 0.4);
+            color: rgba(139, 101, 71, 0.85);
+            text-shadow: 0 0 12px rgba(185, 136, 74, 0.5), 0 0 24px rgba(101, 67, 33, 0.3);
             transform: translateY(-10%);
-            animation: smiley-drift 28s linear infinite;
+            animation: smiley-drift 28s ease-in-out infinite;
         }
 
         @keyframes background-flow {
@@ -100,6 +100,137 @@
             100% {
                 transform: translateY(-10%) translateX(-20%);
                 opacity: 0.18;
+            }
+        }
+
+        /* ========== ANIMOVANÉ LEOPARDÍ SKVRNY ========== */
+        
+        /* Vrstva 1: Velké plovoucí skvrny */
+
+        /* Animované vrstvy skvrn */
+        .leopard-spots-layer-1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background-image: 
+                radial-gradient(ellipse 45px 25px at 15% 25%, rgba(101, 67, 33, 0.12) 0%, transparent 55%),
+                radial-gradient(ellipse 38px 22px at 85% 35%, rgba(139, 101, 71, 0.11) 0%, transparent 55%),
+                radial-gradient(ellipse 50px 28px at 45% 60%, rgba(101, 67, 33, 0.1) 0%, transparent 55%),
+                radial-gradient(ellipse 42px 20px at 75% 75%, rgba(139, 101, 71, 0.09) 0%, transparent 55%),
+                radial-gradient(ellipse 48px 26px at 25% 80%, rgba(101, 67, 33, 0.11) 0%, transparent 55%);
+            background-size: 350px 280px, 400px 300px, 380px 290px, 420px 310px, 360px 280px;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            animation: spots-float-1 32s ease-in-out infinite;
+            opacity: 0.85;
+        }
+
+        .leopard-spots-layer-2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background-image: 
+                radial-gradient(ellipse 52px 30px at 20% 15%, rgba(101, 67, 33, 0.08) 0%, transparent 52%),
+                radial-gradient(ellipse 44px 24px at 70% 50%, rgba(139, 101, 71, 0.09) 0%, transparent 52%),
+                radial-gradient(ellipse 48px 28px at 35% 70%, rgba(101, 67, 33, 0.08) 0%, transparent 52%),
+                radial-gradient(ellipse 46px 26px at 90% 20%, rgba(139, 101, 71, 0.07) 0%, transparent 52%);
+            background-size: 440px 340px, 460px 360px, 420px 320px, 480px 380px;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            animation: spots-float-2 45s ease-in-out infinite;
+            opacity: 0.75;
+        }
+
+        .leopard-spots-layer-3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background-image: 
+                radial-gradient(ellipse 55px 32px at 10% 50%, rgba(101, 67, 33, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 50px 28px at 80% 80%, rgba(139, 101, 71, 0.065) 0%, transparent 50%),
+                radial-gradient(ellipse 48px 26px at 55% 15%, rgba(101, 67, 33, 0.07) 0%, transparent 50%),
+                radial-gradient(ellipse 52px 30px at 40% 85%, rgba(139, 101, 71, 0.06) 0%, transparent 50%);
+            background-size: 500px 400px, 520px 420px, 480px 380px, 540px 440px;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            animation: spots-float-3 55s ease-in-out infinite;
+            opacity: 0.65;
+        }
+
+        /* Animace pro skvrny - pomalý hypnotizující pohyb */
+        @keyframes spots-float-1 {
+            0% {
+                background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+            25% {
+                background-position: 8% 12%, -6% 14%, 10% -8%, -8% 6%, 6% -10%;
+            }
+            50% {
+                background-position: 12% 18%, -10% 20%, 16% -12%, -12% 10%, 10% -14%;
+            }
+            75% {
+                background-position: 6% 14%, -8% 16%, 8% -6%, -10% 8%, 4% -8%;
+            }
+            100% {
+                background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+        }
+
+        @keyframes spots-float-2 {
+            0% {
+                background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+            25% {
+                background-position: -10% 16%, 12% -8%, -6% 10%, 8% 14%;
+            }
+            50% {
+                background-position: -16% 24%, 18% -12%, -10% 16%, 14% 20%;
+            }
+            75% {
+                background-position: -8% 20%, 10% -6%, -4% 8%, 6% 16%;
+            }
+            100% {
+                background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+        }
+
+        @keyframes spots-float-3 {
+            0% {
+                background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+            25% {
+                background-position: 14% -10%, -8% 12%, 10% 16%, -12% -6%;
+            }
+            50% {
+                background-position: 20% -16%, -12% 18%, 16% 24%, -18% -10%;
+            }
+            75% {
+                background-position: 16% -12%, -10% 14%, 12% 18%, -14% -8%;
+            }
+            100% {
+                background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+        }
+
+        /* Dodatečný magický efekt - lehké rotace a pulsace */
+        @keyframes magical-pulse {
+            0%, 100% {
+                filter: brightness(1) saturate(0.95);
+            }
+            50% {
+                filter: brightness(1.05) saturate(1.05);
             }
         }
 
@@ -266,6 +397,11 @@
     </style>
 </head>
 <body>
+    <!-- Animované leopardí skvrny na pozadí -->
+    <div class="leopard-spots-layer-1"></div>
+    <div class="leopard-spots-layer-2"></div>
+    <div class="leopard-spots-layer-3"></div>
+    
     <div class="container">
         <!-- Nadpis -->
         <h1>Leopardí věštírna</h1>
